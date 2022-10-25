@@ -1,9 +1,11 @@
 import React from 'react';
-
-const CourseList = () => {
+import { Link } from 'react-router-dom';
+import './couselist.css'
+const CourseList = ({corse}) => {
+    const {course_name} = corse
     return (
-        <div>
-            
+        <div className='sidenav'>
+            <Link>{course_name}</Link>
         </div>
     );
 };
