@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../component/Blog/Blog";
+import CourseDetails from "../component/CourseDetails/CourseDetails";
 import CoursePage from "../component/CoursePage/CoursePage";
+import FAQ from "../component/FAQ/FAQ";
 import Main from "../Layout/Main";
 
 const router = createBrowserRouter([
@@ -10,8 +13,21 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <CoursePage></CoursePage>,
-        loader : () => fetch('http://localhost:5000/course')
+        loader : () => fetch('https://server-tanzilmia.vercel.app/course')
       },
+      {
+        path : '/blog',
+        element :<Blog></Blog>
+      },
+      {
+        path : '/faq',
+        element : <FAQ></FAQ>
+      },
+      {
+        path : '/details/:course_name',
+        element : <CourseDetails></CourseDetails>,
+        loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
+      }
     ],
   },
 ]);

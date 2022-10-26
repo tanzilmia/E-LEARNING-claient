@@ -5,7 +5,7 @@ const CourseList = ({corse}) => {
     const {course_name} = corse
     return (
         <div className='sidenav'>
-            <Link>{course_name}</Link>
+            <Link to = {`/details/${course_name}`}>{course_name}</Link>
         </div>
     );
 };
