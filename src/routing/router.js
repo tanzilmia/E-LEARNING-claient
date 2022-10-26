@@ -4,6 +4,8 @@ import CorseParses from "../component/CorseParses/CorseParses";
 import CourseDetails from "../component/CourseDetails/CourseDetails";
 import CoursePage from "../component/CoursePage/CoursePage";
 import FAQ from "../component/FAQ/FAQ";
+import Login from "../component/Login/Login";
+import Register from "../component/Register/Register";
 import Main from "../Layout/Main";
 
 const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
         element : <CorseParses></CorseParses>,
         loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
       },
+      {
+        path: '/login',
+        element : <Login></Login>
+      },
+      {
+        path : '/register',
+        element : <Register></Register>
+      }
     ],
   },
 ]);
