@@ -1,13 +1,52 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { mycontext } from '../../contextApi/UserContext';
 
 
 const Register = () => {
+    const {registration,getNameAndPhoto} = useContext(mycontext)
+    const [error, seterror] = useState(null)
+
+    const handelRegister = (e) =>{
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value
+        const email = form.email.value
+        const photoURL = form.photoURL.value
+        const password = form.password.value
+
+
+        registration(email,password)
+        .then(result => {
+            const user = result.user
+            console.log(user);
+            updatemyProfile(name,photoURL)
+        })
+        .catch((error) =>{
+            seterror(error.message)
+            form.reset()
+        })
+        console.log(name,email,photoURL,password);
+    }
+
+
+    const updatemyProfile = (name,photoURL) =>{
+        const profile = {
+            displayName : name,
+            photoURL : photoURL
+        }
+        getNameAndPhoto(profile)
+        .then(() => {})
+        .catch(error => seterror(error.message))
+
+    }
+
     return (
         <div>
              <div className='from_box'>
             <h2> Register Now</h2>
-            <form>
+            <form onSubmit={handelRegister}>
                 <div className="form_control">
                     <label htmlFor="email">Name</label>
                     <input type="text" name="name" placeholder='Your Name' required />
@@ -24,6 +63,7 @@ const Register = () => {
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" placeholder='Your Password' required />
                 </div>
+                <p> {error} </p>
                 <button type='submit'>Register</button>
             </form>
             <p><small>Already Have an Account ?</small> <Link to ='/login'> Login </Link> </p>

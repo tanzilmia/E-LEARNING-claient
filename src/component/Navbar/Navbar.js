@@ -1,10 +1,23 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { mycontext } from '../../contextApi/UserContext';
 import './Navbar.css'
 const Navbars = () => {
+  
+  const {logout} = useContext(mycontext)
+
+
+  const handleLogout = ()=>{
+    logout()
+    .then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
     return (
         <Navbar bg="light" expand="lg">
         <Container>
@@ -16,6 +29,8 @@ const Navbars = () => {
               <Link to = '/blog'>Blog</Link>
               <Link to = '/faq'>FAQ</Link>
               <Link to = '/login'>Login</Link>
+              <Link onClick={handleLogout}>Logout</Link>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
