@@ -1,9 +1,10 @@
 import React,{useState} from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { mycontext } from "../../contextApi/UserContext";
 import './Login.css'
 const Login = () => {
+  const naviget = useNavigate()
   const [error, seterror] = useState(null)
 const {logIn} = useContext(mycontext)
 const handelLogin = (e) =>{
@@ -19,6 +20,7 @@ const handelLogin = (e) =>{
         .then(result => {
           const user = result.user
           console.log(user)
+          naviget('/')
         })
         .catch(error => seterror(error.message))
 

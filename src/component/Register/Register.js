@@ -1,13 +1,13 @@
 import React,{useState} from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { mycontext } from '../../contextApi/UserContext';
 
 
 const Register = () => {
     const {registration,getNameAndPhoto} = useContext(mycontext)
     const [error, seterror] = useState(null)
-
+    const naviget = useNavigate()
     const handelRegister = (e) =>{
         e.preventDefault()
         const form = e.target;
@@ -22,6 +22,7 @@ const Register = () => {
             const user = result.user
             console.log(user);
             updatemyProfile(name,photoURL)
+            naviget('/')
         })
         .catch((error) =>{
             seterror(error.message)
