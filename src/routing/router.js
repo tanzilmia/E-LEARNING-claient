@@ -7,6 +7,7 @@ import FAQ from "../component/FAQ/FAQ";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
 import Main from "../Layout/Main";
+import PrivetRouting from "./PrivetRouting";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/parces/:course_name',
-        element : <CorseParses></CorseParses>,
+        element : <PrivetRouting><CorseParses></CorseParses></PrivetRouting>,
         loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
       },
       {

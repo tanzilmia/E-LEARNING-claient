@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { mycontext } from "../../contextApi/UserContext";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Container from "react-bootstrap/Container";
@@ -8,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import "./CorseParces.css";
 const CorseParses = () => {
   const corseparses = useLoaderData();
+  const {user} = useContext(mycontext)
   const {
     img,
     course_name,
@@ -22,8 +24,10 @@ const CorseParses = () => {
   return (
     <Container>
       <Row>
-        <h2 className="text-center my-3 text-success">Congratulations You Parces {course_name} Course  </h2>
+        <h2 className="text-center my-3 text-success">Congratulations {user?.displayName} , You Parces {course_name} Course  </h2>
+        <h3 className="text-center" >Course Details</h3>
         <Col md = {6}>
+         
           <div>
             <Form className="mx-auto">
               <Form.Group className="mb-3" controlId="formBasicEmail">

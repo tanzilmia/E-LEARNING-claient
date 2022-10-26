@@ -38,7 +38,7 @@ const UserContext = ({children}) => {
         }
       }, [])
 
-    const contextValue = {registration,getNameAndPhoto,user,logout,logIn}
+    const contextValue = {registration,getNameAndPhoto,user,logout,logIn,loadding}
     return (
         <mycontext.Provider value = {contextValue}>
             {children}

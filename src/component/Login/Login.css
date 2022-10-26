@@ -39,3 +39,15 @@
 	.from_box button:hover{
 	    background: rgb(28, 113, 251);
 	}
+	.social_logo{
+		width: 200px;
+		margin-left: 100px;
+		margin-bottom: 10px;
+
+	}
+	.log_icon{
+		font-size: 45px;
+		margin: 0 10px;
+		cursor: pointer;
+
+	}

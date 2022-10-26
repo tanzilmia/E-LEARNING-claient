@@ -1,14 +1,22 @@
 import React,{useContext} from 'react';
 import Container from 'react-bootstrap/Container';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { mycontext } from '../../contextApi/UserContext';
+import { FiLogOut } from 'react-icons/fi';
+import { FaUserAlt } from 'react-icons/fa';
 import './Navbar.css'
 const Navbars = () => {
   
-  const {logout} = useContext(mycontext)
-
+  const {logout,user} = useContext(mycontext)
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {user?.displayName}
+    </Tooltip>
+  );
 
   const handleLogout = ()=>{
     logout()
@@ -28,8 +36,38 @@ const Navbars = () => {
               <Link to = '/'>Course</Link>
               <Link to = '/blog'>Blog</Link>
               <Link to = '/faq'>FAQ</Link>
-              <Link to = '/login'>Login</Link>
-              <Link onClick={handleLogout}>Logout</Link>
+              
+              
+              {
+                user?.uid ?
+                <>
+                {
+                  user?.photoURL?
+                     
+                  <OverlayTrigger
+                  placement="right"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={renderTooltip}
+                >
+                  <div className='user_img'><img className='user_img' src= {user.photoURL} alt="" /></div>
+                </OverlayTrigger>
+
+                   
+                  :
+                  <FaUserAlt className='user_img'/>
+                }
+                
+                <Link onClick={handleLogout}> <FiLogOut/> </Link>
+
+                </>
+                :
+                <>
+                 <Link to = '/login'>Login</Link>
+                </>
+
+              }
+              
+              
 
             </Nav>
           </Navbar.Collapse>
@@ -39,3 +77,5 @@ const Navbars = () => {
 };
 
 export default Navbars;
+
+// 

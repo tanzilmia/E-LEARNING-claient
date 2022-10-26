@@ -1,30 +1,42 @@
 import React,{useState} from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { mycontext } from "../../contextApi/UserContext";
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 import './Login.css'
 const Login = () => {
   const naviget = useNavigate()
   const [error, seterror] = useState(null)
 const {logIn} = useContext(mycontext)
+
+const location = useLocation()
+const from = location?.state?.from?.pathname || '/'
+
+const handleGoogle = () =>{
+
+}
+
+const handleGithub = () =>{
+  
+}
+
 const handelLogin = (e) =>{
   e.preventDefault()
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
-
-
-        // sing in
-
         logIn(email,password)
         .then(result => {
           const user = result.user
           console.log(user)
-          naviget('/')
+          
+          naviget(from, {replace : true})
         })
-        .catch(error => seterror(error.message))
-
-
+        .catch(error => {
+          seterror(error.message)
+          form.reset()
+        })
 }
 
   return (
@@ -52,6 +64,11 @@ const handelLogin = (e) =>{
           </div>
           <p> {error} </p>
           <button type="submit">Login</button>
+          <p className="text-center mt-2 mb-0">Or</p>
+          <div className="social_logo">
+             <FcGoogle onClick={handleGoogle} className="log_icon" /> 
+             <FaGithub onClick={handleGithub} className="log_icon" /> 
+          </div>
         </form>
         <p>
           <small>New To E-Learning ?</small>{" "}
