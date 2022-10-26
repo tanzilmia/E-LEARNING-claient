@@ -28,13 +28,14 @@
 	.from_box button{
 	 width: 92%;    
 	 padding: 10px;
-	 background: rgb(28, 113, 251);
 	 border: none;
 	 font-size: 20px;
 	 cursor: pointer;
      color: #fff;
      transition: .3s;
+     border-radius: 40px;
+     background: #1251bf;
 	}
 	.from_box button:hover{
-	    background: #f2ca80;
+	    background: rgb(28, 113, 251);
 	}
