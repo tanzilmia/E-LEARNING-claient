@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { Link, useLoaderData } from "react-router-dom";
-import { BsStarFill,BsCurrencyDollar } from "react-icons/bs";
+import { BsStarFill,BsCurrencyDollar,BsFillCartFill } from "react-icons/bs";
 import { FcVideoCall } from "react-icons/fc";
 import { FiClock } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
@@ -55,7 +55,7 @@ const CourseDetails = () => {
               </div>
 
             <div className="btns_booking">
-                <Link to = {`/parces/${course_name}`} >Parcess  </Link>
+                <Link to = {`/parces/${course_name}`} > <BsFillCartFill /> <span> Parcess</span>  </Link>
                 <Link to = '/'> Cancel </Link>
             </div>
               
