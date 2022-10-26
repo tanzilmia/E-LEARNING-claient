@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../component/Blog/Blog";
+import CorseParses from "../component/CorseParses/CorseParses";
 import CourseDetails from "../component/CourseDetails/CourseDetails";
 import CoursePage from "../component/CoursePage/CoursePage";
 import FAQ from "../component/FAQ/FAQ";
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
         path : '/details/:course_name',
         element : <CourseDetails></CourseDetails>,
         loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
-      }
+      },
+      {
+        path : '/parces/:course_name',
+        element : <CorseParses></CorseParses>,
+        loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
+      },
     ],
   },
 ]);

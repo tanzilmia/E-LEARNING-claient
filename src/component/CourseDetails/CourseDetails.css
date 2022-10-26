@@ -1,0 +1,102 @@
+.titlebox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.titlebox .title{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(128, 127, 127);
+}
+.titlebox .discount,.ratting_details{
+    font-size: 18px;
+    color: rgb(83, 96, 130);
+    font-weight: bold;
+    background: rgb(97, 187, 243);
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.description{
+    font-size: 18px;
+    color: rgb(72, 77, 81);
+    text-transform: capitalize;
+    margin: 15px 0;
+}
+.ratting_details{
+    background: rgb(240, 239, 239);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.ratting{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: rgb(126, 123, 123);
+    font-size: 22px;
+}
+.ratting .icons{
+    color: rgb(244, 205, 131);
+    margin-right: 5px;
+}
+.total_rattings{
+    font-size: 14px;
+}
+.course_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.course_info .common{
+    background: rgb(223, 251, 255);
+    padding:5px 10px;
+    border-radius: 5px;
+    color: green;
+    font-weight: bold;
+    font-size: 14px;
+}
+.btns_booking a{
+    text-decoration: none;
+    color: #fff;
+    background: #000;
+    margin-left: 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: red;
+    transition: 0.3s;
+
+}
+.btns_booking a:hover{
+    background: rgb(227, 18, 18);
+    color: rgba(232, 225, 225, 0.8);
+}
+.btns_booking a:first-child{
+    background: rgb(17, 212, 17);
+    color: #fff;
+    
+}
+.btns_booking a:first-child:hover{
+    background: rgb(6, 187, 6);
+    color: #fff;
+}
+.btns_booking{
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+    
+}
+.topic_text{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 7px;
+}
+.details_section{
+    box-shadow: 8px 8px 8px -4px #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 2px solid #f2f2f2;
+    border-top: 2px solid #f2f2f2;
+}

@@ -19,7 +19,7 @@ const CourseCard = ({corsecard}) => {
             </div>
           </div>
           
-          <Link className='btntitle' variant="primary">{course_name}</Link>
+          <Link className='btntitle' to = {`/details/${course_name}`} variant="primary">{course_name}</Link>
         </Card.Body>
       </Card>
     );
