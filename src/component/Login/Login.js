@@ -8,17 +8,24 @@ import './Login.css'
 const Login = () => {
   const naviget = useNavigate()
   const [error, seterror] = useState(null)
-const {logIn} = useContext(mycontext)
-
+const {logIn,googleSignin} = useContext(mycontext)
 const location = useLocation()
 const from = location?.state?.from?.pathname || '/'
 
 const handleGoogle = () =>{
-
+  googleSignin()
+  .then(result => {
+    const user = result.user;
+    console.log(user)
+    naviget(from, {replace : true})
+  })
+  .catch(error =>{
+    console.log(error);
+  })
 }
 
 const handleGithub = () =>{
-  
+
 }
 
 const handelLogin = (e) =>{
