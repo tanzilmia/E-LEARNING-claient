@@ -92,6 +92,7 @@
     font-size: 18px;
     text-transform: capitalize;
     margin: 7px;
+    list-style-type:disc;   
 }
 .details_section{
     box-shadow: 8px 8px 8px -4px #f2f2f2;
@@ -108,4 +109,10 @@
 }
 .btns_booking a span{
     margin-left: 8px;
+}
+.course_nav{
+    background: rgb(250, 248, 248);
+    padding: 15px;
+    box-shadow: 4px 4px 8px #f2f2f2 ;
+    
 }

@@ -3,15 +3,20 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { jsPDF } from "jspdf";
 import { Link, useLoaderData } from "react-router-dom";
 import { BsStarFill,BsCurrencyDollar,BsFillCartFill } from "react-icons/bs";
 import { FcVideoCall } from "react-icons/fc";
 import { FiClock } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import { RiMoneyEuroCircleLine } from "react-icons/ri";
-
+import { mycontext } from '../../contextApi/UserContext';
 import "./CourseDetails.css";
+import { useContext } from "react";
+import logo from '../../assest/logo.png'
 const CourseDetails = () => {
+const {user} = useContext(mycontext)
+
   const coursedetails = useLoaderData();
   console.log(coursedetails);
   const {
@@ -28,8 +33,37 @@ const CourseDetails = () => {
     course_duration,
     assignment,
   } = coursedetails;
+
+
+  const handlePFD = () =>{
+    const doc = new jsPDF("a4", false);
+    doc.addImage(logo, "png", 10, 10, 10, 10);
+    doc.setFontSize(15);
+    doc.text(20, 16, "E-Learning");
+    doc.setFontSize(10);
+    doc.text(20, 19, "A digital Learning Platform");
+    doc.setFontSize(20);
+    doc.text(40, 25, "Student Information");
+    doc.setFontSize(15);
+    doc.text(40, 35, "Name :");
+    doc.text(40, 40, "Email :");
+    doc.text(40, 45, "Cources : ");
+    doc.text(40, 50, "Price : ");
+    doc.text(70, 35, user.displayName);
+    doc.text(70, 40, user.email);
+    doc.text(70, 45,course_name);
+    doc.text(70, 50, price + "$");
+    doc.setFontSize(40);
+    doc.text(20, 60, `Join Now Get  ${discount}% OFF`);
+    doc.save("e-learning-a4.pdf");
+  }
+
+
+
+
   return (
-    <Container className="mt-3">
+    <Container className="my-4">
+      <button onClick={handlePFD} className = 'btn btn-success my-3'>Download PDF </button>
       <Row>
         <Col md={6}>
           <Card style={{ width: "100%" }}>
@@ -68,7 +102,7 @@ const CourseDetails = () => {
             <h4 className="text-center">What Will You Learn</h4>
 
                 {
-                    topics.map(topic => <p className="topic_text"> >> {topic}</p> )
+                    topics.map(topic => <li className="topic_text">{topic}</li> )
                 }
 
             </div>

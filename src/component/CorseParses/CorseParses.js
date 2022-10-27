@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { mycontext } from "../../contextApi/UserContext";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -84,6 +84,7 @@ const CorseParses = () => {
           </div>
         </Col>
       </Row>
+       <Link to = '/' className="btn btn-success">Back To Home</Link>
     </Container>
   );
 };

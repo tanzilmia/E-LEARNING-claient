@@ -12,13 +12,13 @@ const CoursePage = () => {
   return (
     <Container>
       <Row>
-        <Col className="course_nav mt-5" md={3}>
+        <Col className="course_nav mt-5" md={2}>
           <h3 className="text-center h1 text-danger">Topics</h3>
           {corses.map((corse) => (
             <CourseList corse={corse} key={corse.course_id}></CourseList>
           ))}{" "}
         </Col>
-        <Col className="mt-5" md={9}>
+        <Col className="mt-5" md={10}>
           <Container>
             <Row>
                {corses.map((corsecard) => (
