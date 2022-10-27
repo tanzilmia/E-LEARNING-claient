@@ -43,8 +43,6 @@ const {user} = useContext(mycontext)
     doc.setFontSize(20);
     doc.text(40, 25, "Student Information");
     doc.setFontSize(15);
-    doc.text(40, 35, "Name :");
-    doc.text(40, 40, "Email :");
     doc.text(40, 45, "Cources : ");
     doc.text(40, 50, "Price : ");
     doc.text(70, 45,course_name);
