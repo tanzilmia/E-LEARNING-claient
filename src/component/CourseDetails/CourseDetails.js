@@ -47,8 +47,6 @@ const {user} = useContext(mycontext)
     doc.text(40, 40, "Email :");
     doc.text(40, 45, "Cources : ");
     doc.text(40, 50, "Price : ");
-    doc.text(70, 35, user.displayName);
-    doc.text(70, 40, user.email);
     doc.text(70, 45,course_name);
     doc.text(70, 50, price + "$");
     doc.setFontSize(40);
