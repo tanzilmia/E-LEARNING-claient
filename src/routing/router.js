@@ -3,6 +3,7 @@ import Blog from "../component/Blog/Blog";
 import CorseParses from "../component/CorseParses/CorseParses";
 import CourseDetails from "../component/CourseDetails/CourseDetails";
 import CoursePage from "../component/CoursePage/CoursePage";
+import Error from "../component/Errorpage/Error";
 import FAQ from "../component/FAQ/FAQ";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement : <Error></Error>,
     children: [
       {
         path: "/",
