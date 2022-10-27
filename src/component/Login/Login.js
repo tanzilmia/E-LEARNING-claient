@@ -8,7 +8,7 @@ import './Login.css'
 const Login = () => {
   const naviget = useNavigate()
   const [error, seterror] = useState(null)
-const {logIn,googleSignin} = useContext(mycontext)
+const {logIn,googleSignin,gitHublogin,setuser} = useContext(mycontext)
 const location = useLocation()
 const from = location?.state?.from?.pathname || '/'
 
@@ -16,7 +16,7 @@ const handleGoogle = () =>{
   googleSignin()
   .then(result => {
     const user = result.user;
-    console.log(user)
+    setuser(user)
     naviget(from, {replace : true})
   })
   .catch(error =>{
@@ -25,7 +25,15 @@ const handleGoogle = () =>{
 }
 
 const handleGithub = () =>{
-
+  gitHublogin()
+  .then(result => {
+    const user = result.user;
+    setuser(user)
+    naviget(from, {replace : true})
+  })
+  .catch(error =>{
+    seterror(error.message);
+  })
 }
 
 const handelLogin = (e) =>{
@@ -36,7 +44,7 @@ const handelLogin = (e) =>{
         logIn(email,password)
         .then(result => {
           const user = result.user
-          console.log(user)
+          setuser(user)
           
           naviget(from, {replace : true})
         })

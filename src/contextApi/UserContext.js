@@ -7,15 +7,24 @@ import {
   signOut,
   signInWithEmailAndPassword,
   GoogleAuthProvider ,
-  signInWithPopup
+  signInWithPopup,
+  GithubAuthProvider
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 const auth = getAuth(app);
 export const mycontext = createContext();
 const provider = new GoogleAuthProvider();
+const gitProvider = new GithubAuthProvider()
+
 const UserContext = ({ children }) => {
+
   const [user, setuser] = useState(null);
   const [loadding, setloadding] = useState(true);
+
+
+  const gitHublogin = ()=>{
+    return signInWithPopup(auth, gitProvider)
+  }
 
   const getNameAndPhoto = (profile) => {
     return updateProfile(auth.currentUser, profile);
@@ -59,6 +68,8 @@ const UserContext = ({ children }) => {
     logIn,
     loadding,
     googleSignin,
+    gitHublogin,
+    setuser
   };
   return (
     <mycontext.Provider value={contextValue}>{children}</mycontext.Provider>

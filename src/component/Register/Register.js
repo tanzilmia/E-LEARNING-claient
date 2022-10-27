@@ -5,7 +5,7 @@ import { mycontext } from '../../contextApi/UserContext';
 
 
 const Register = () => {
-    const {registration,getNameAndPhoto} = useContext(mycontext)
+    const {registration,getNameAndPhoto,setuser} = useContext(mycontext)
     const [error, seterror] = useState(null)
     const naviget = useNavigate()
     const handelRegister = (e) =>{
@@ -20,7 +20,7 @@ const Register = () => {
         registration(email,password)
         .then(result => {
             const user = result.user
-            console.log(user);
+            setuser(user);
             updatemyProfile(name,photoURL)
             naviget('/')
         })

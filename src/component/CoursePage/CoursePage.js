@@ -19,14 +19,18 @@ const CoursePage = () => {
           ))}{" "}
         </Col>
         <Col className="mt-5" md={9}>
-          <div className="allcards">
-            {corses.map((corsecard) => (
-              <CourseCard
-                key={corsecard.course_id}
-                corsecard={corsecard}
-              ></CourseCard>
-            ))}
-          </div>
+          <Container>
+            <Row>
+               {corses.map((corsecard) => (
+                 <Col md = {4}>
+                  <CourseCard
+                  key={corsecard.course_id}
+                  corsecard={corsecard}
+                 ></CourseCard>
+                 </Col>
+              ))}
+            </Row>
+          </Container>
         </Col>
       </Row>
     </Container>
