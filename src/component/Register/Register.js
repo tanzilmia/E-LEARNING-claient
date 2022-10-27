@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { mycontext } from '../../contextApi/UserContext';
-
+import {toast} from 'react-hot-toast'
 
 const Register = () => {
     const {registration,getNameAndPhoto,setuser} = useContext(mycontext)
@@ -22,10 +22,11 @@ const Register = () => {
             const user = result.user
             setuser(user);
             updatemyProfile(name,photoURL)
+            toast.success('Successfully login!')
             naviget('/')
         })
         .catch((error) =>{
-            seterror(error.message)
+            toast.error(`${error.message}`)
             form.reset()
         })
         console.log(name,email,photoURL,password);

@@ -9,6 +9,7 @@ import { mycontext } from '../../contextApi/UserContext';
 import { FiLogOut } from 'react-icons/fi';
 import { FaUserAlt } from 'react-icons/fa';
 import { BsSunFill,BsMoonStarsFill } from 'react-icons/bs';
+import {toast} from 'react-hot-toast'
 
 import './Navbar.css'
 import logo from '../../assest/logo.png'
@@ -24,9 +25,9 @@ const Navbars = () => {
   const handleLogout = ()=>{
     logout()
     .then(() => {
-      // Sign-out successful.
+      toast.success('Successfully Logout!')
     }).catch((error) => {
-      // An error happened.
+      toast.error(`${error.message}`)
     });
   }
 

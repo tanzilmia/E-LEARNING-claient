@@ -16,9 +16,7 @@ import { useContext } from "react";
 import logo from '../../assest/logo.png'
 const CourseDetails = () => {
 const {user} = useContext(mycontext)
-
   const coursedetails = useLoaderData();
-  console.log(coursedetails);
   const {
     img,
     course_name,
@@ -99,7 +97,7 @@ const {user} = useContext(mycontext)
             <h4 className="text-center">What Will You Learn</h4>
 
                 {
-                    topics.map(topic => <li className="topic_text">{topic}</li> )
+                    topics.map(topic => <li key={topic.toString()} className="topic_text">{topic}</li> )
                 }
 
             </div>

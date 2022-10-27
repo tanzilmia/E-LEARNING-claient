@@ -1,13 +1,14 @@
-import React,{useState} from "react";
+import React from "react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { mycontext } from "../../contextApi/UserContext";
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import {toast} from 'react-hot-toast'
 import './Login.css'
 const Login = () => {
   const naviget = useNavigate()
-  const [error, seterror] = useState(null)
+  
 const {logIn,googleSignin,gitHublogin,setuser} = useContext(mycontext)
 const location = useLocation()
 const from = location?.state?.from?.pathname || '/'
@@ -17,10 +18,11 @@ const handleGoogle = () =>{
   .then(result => {
     const user = result.user;
     setuser(user)
+    toast.success('Successfully login!')
     naviget(from, {replace : true})
   })
   .catch(error =>{
-    console.log(error);
+    toast.error(`${error.message}`)
   })
 }
 
@@ -30,9 +32,11 @@ const handleGithub = () =>{
     const user = result.user;
     setuser(user)
     naviget(from, {replace : true})
+    toast.success('Successfully login!')
   })
   .catch(error =>{
-    seterror(error.message);
+   
+    toast.error(`${error.message}`)
   })
 }
 
@@ -45,11 +49,11 @@ const handelLogin = (e) =>{
         .then(result => {
           const user = result.user
           setuser(user)
-          
+          toast.success('Successfully login!')
           naviget(from, {replace : true})
         })
         .catch(error => {
-          seterror(error.message)
+          toast.error(`${error.message}`)
           form.reset()
         })
 }
@@ -77,7 +81,7 @@ const handelLogin = (e) =>{
               required
             />
           </div>
-          <p> {error} </p>
+         
           <button type="submit">Login</button>
           <p className="text-center mt-2 mb-0">Or</p>
           <div className="social_logo">
