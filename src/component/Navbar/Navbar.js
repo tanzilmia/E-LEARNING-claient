@@ -13,9 +13,6 @@ import { BsSunFill,BsMoonStarsFill } from 'react-icons/bs';
 import './Navbar.css'
 import logo from '../../assest/logo.png'
 const Navbars = () => {
-
-
-  
   const [state, setstate] = useState(false)
   const {logout,user} = useContext(mycontext)
   const renderTooltip = (props) => (

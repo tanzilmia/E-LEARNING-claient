@@ -58,9 +58,6 @@ const {user} = useContext(mycontext)
     doc.save("e-learning-a4.pdf");
   }
 
-
-
-
   return (
     <Container className="my-4">
       <button onClick={handlePFD} className = 'btn btn-success my-3'>Download PDF </button>
