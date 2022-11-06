@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <CoursePage></CoursePage>,
-        loader : () => fetch('https://server-tanzilmia.vercel.app/course')
+        loader : () => fetch('https://server-hdrdmjvp4-tanzilmia.vercel.app/course')
       },
       {
         path : '/blog',
@@ -32,12 +32,12 @@ const router = createBrowserRouter([
       {
         path : '/details/:course_name',
         element : <CourseDetails></CourseDetails>,
-        loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
+        loader : ({params}) => fetch(`https://server-hdrdmjvp4-tanzilmia.vercel.app/details/${params.course_name}`)
       },
       {
         path : '/parces/:course_name',
         element : <PrivetRouting><CorseParses></CorseParses></PrivetRouting>,
-        loader : ({params}) => fetch(`https://server-tanzilmia.vercel.app/details/${params.course_name}`)
+        loader : ({params}) => fetch(`https://server-hdrdmjvp4-tanzilmia.vercel.app/details/${params.course_name}`)
       },
       {
         path: '/login',
